@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jungian Functional Personality Typology Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+    <script>
+
+	function format_query() {
+
+	    let query_input = document.getElementById("query");
+
+            query_input.value = "Type the Interviewee based on Jungian Functional Typologies and MBTI.\n\n";
+	
+	    query_input.value += "Typist: When making an important decision, do you rely more on past experiences and concrete facts, or do you focus on exploring new possibilities and imagining future outcomes? Why?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("past_vs_future")[0].value + "\n\n";
+
+	    query_input.value += "Typist: When approaching a problem, do you naturally focus on the smaller details and the practical steps, or do you prefer to think about the overarching patterns and how everything connects? Describe an example.\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("details_vs_patterns")[0].value + "\n\n";
+
+	    query_input.value += "Typist: Do you find yourself drawn to observing and enjoying the present moment, or are you more focused on where things are leading in the long term? How does this affect how you navigate everyday life?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("present_vs_bigpicture")[0].value + "\n\n";
+
+	    query_input.value += "Typist: When resolving a conflict, do you focus more on fairness and objective criteria, or on maintaining harmony and considering how everyone feels? Why do you prefer this approach?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("logic_vs_values")[0].value + "\n\n";
+
+	    query_input.value += "Typist: When faced with a complex situation, do you organize tasks based on logical efficiency and results, or do you prioritize the needs and emotions of the people involved? Provide an example of how you’ve done this in the past.\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("prioritizing_tasks")[0].value + "\n\n";
+
+	    query_input.value += "Typist: Do you prefer making decisions based on your internal reasoning and principles, or do you seek input from others to ensure everyone is aligned? How does this influence your decision-making process?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("logic_vs_harmony")[0].value + "\n\n";
+
+	    query_input.value += "Typist: Do you feel more energized when engaging in discussions and activities with others, or when you have time alone to reflect and recharge? Why?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("social_vs_solitude")[0].value + "\n\n";
+
+	    query_input.value += "Typist: Do you prefer to think out loud and refine ideas through conversation, or do you need time to process your thoughts privately before sharing? How does this play out in your daily life?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("processing_ideas")[0].value + "\n\n";
+
+	    query_input.value += "Typist: When plans change unexpectedly, do you feel comfortable adjusting on the fly, or do you prefer to take a step back and think things through? How do you respond in these situations?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("adapting_to_changes")[0].value + "\n\n";
+
+	    query_input.value += "Typist: When organizing a trip, do you prefer to create a detailed itinerary, leave room for flexible exploration, or dive in with no set plan? Why do you think you approach it this way?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("planning_vs_spontaneity")[0].value + "\n\n";
+
+	    query_input.value += "Typist: When faced with an ambiguous situation, do you focus on gathering all the facts before acting, or do you trust your intuition and take action based on your gut feeling? How does this affect your outcomes?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("handling_uncertainty")[0].value + "\n\n";
+
+	    query_input.value += "Typist: When a friend comes to you with a problem, do you focus more on helping them work through it logically or providing emotional support? How do you balance the two?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("emotional_vs_logical")[0].value + "\n\n";
+
+	    query_input.value += "Typist: When something unexpected happens, do you rely on your ability to improvise and stay in the moment, or do you pause to consider how it aligns with your overall plans or values? Describe an example.\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("dealing_with_unexpected")[0].value + "\n\n";
+
+	    query_input.value += "Typist: What do you feel is your greatest strength in how you approach the world—whether in your work, relationships, or personal growth? How has this helped you?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("strengths")[0].value + "\n\n";
+
+	    query_input.value += "Typist: What aspects of yourself or your approach to life do you find most challenging? For example, are there situations where you feel out of your depth or need to exert extra effort to succeed?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("challenges")[0].value + "\n\n";
+
+	    query_input.value += "Typist: When you're at your best, what kind of activities or situations feel most natural to you? Are there particular environments where you thrive?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("comfort_zones")[0].value + "\n\n";
+
+	    query_input.value += "Typist: What do you feel you need to work on to grow as a person? For instance, are there skills or traits you wish to develop further?\n";
+	    query_input.value += "Interviewee: " + document.getElementsByName("growth_areas")[0].value + "\n\n";
+
+	    document.getElementById("submit_form").submit();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Jungian Functional Personality Typology Questionnaire</h1>
+        <p>Explore your personality preferences and tendencies.</p>
+    </header>
+    <main>
+
+        <!-- Section 1: Perception -->
+        <section id="perception">
+            <h2>Section 1: Perception (Sensing vs. Intuition)</h2>
+            <article>
+                <h3>Past Experiences vs. Future Possibilities</h3>
+                <p>When making an important decision, do you rely more on past experiences and concrete facts, or do you focus on exploring new possibilities and imagining future outcomes? Why?</p>
+                <textarea name="past_vs_future" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Focus on Details vs. Patterns</h3>
+                <p>When approaching a problem, do you naturally focus on the smaller details and the practical steps, or do you prefer to think about the overarching patterns and how everything connects? Describe an example.</p>
+                <textarea name="details_vs_patterns" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Present Reality vs. Big Picture Thinking</h3>
+                <p>Do you find yourself drawn to observing and enjoying the present moment, or are you more focused on where things are leading in the long term? How does this affect how you navigate everyday life?</p>
+                <textarea name="present_vs_bigpicture" placeholder="Your response..."></textarea>
+            </article>
+        </section>
+
+        <!-- Section 2: Judgment -->
+        <section id="judgment">
+            <h2>Section 2: Judgment (Thinking vs. Feeling)</h2>
+            <article>
+                <h3>Objective Logic vs. Personal Values</h3>
+                <p>When resolving a conflict, do you focus more on fairness and objective criteria, or on maintaining harmony and considering how everyone feels? Why do you prefer this approach?</p>
+                <textarea name="logic_vs_values" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Prioritizing Tasks</h3>
+                <p>When faced with a complex situation, do you organize tasks based on logical efficiency and results, or do you prioritize the needs and emotions of the people involved? Provide an example of how you’ve done this in the past.</p>
+                <textarea name="prioritizing_tasks" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Internal Logic vs. External Harmony</h3>
+                <p>Do you prefer making decisions based on your internal reasoning and principles, or do you seek input from others to ensure everyone is aligned? How does this influence your decision-making process?</p>
+                <textarea name="logic_vs_harmony" placeholder="Your response..."></textarea>
+            </article>
+        </section>
+
+        <!-- Section 3: Orientation -->
+        <section id="orientation">
+            <h2>Section 3: Orientation (Extraversion vs. Introversion)</h2>
+            <article>
+                <h3>Energized by Social Interaction vs. Solitude</h3>
+                <p>Do you feel more energized when engaging in discussions and activities with others, or when you have time alone to reflect and recharge? Why?</p>
+                <textarea name="social_vs_solitude" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Processing Ideas</h3>
+                <p>Do you prefer to think out loud and refine ideas through conversation, or do you need time to process your thoughts privately before sharing? How does this play out in your daily life?</p>
+                <textarea name="processing_ideas" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Adapting to External Situations</h3>
+                <p>When plans change unexpectedly, do you feel comfortable adjusting on the fly, or doWhen organizing a trip, do you prefer to create a detailed itinerary, leave room for flexible exploration, or dive in with no set plan? Why do you think you approach it this way? you prefer to take a step back and think things through? How do you respond in these situations?</p>
+                <textarea name="adapting_to_changes" placeholder="Your response..."></textarea>
+            </article>
+        </section>
+
+        <!-- Section 4: Cognitive Function Dynamics -->
+        <section id="cognitive-functions">
+            <h2>Section 4: Cognitive Function Dynamics (Specific Functions)</h2>
+            <article>
+                <h3>Planning vs. Spontaneity</h3>
+                <p>When organizing a trip, do you prefer to create a detailed itinerary, leave room for flexible exploration, or dive in with no set plan? Why do you think you approach it this way?</p>
+                <textarea name="planning_vs_spontaneity" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Handling Uncertainty</h3>
+                <p>When faced with an ambiguous situation, do you focus on gathering all the facts before acting, or do you trust your intuition and take action based on your gut feeling? How does this affect your outcomes?</p>
+                <textarea name="handling_uncertainty" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Emotional Connection vs. Logical Problem Solving</h3>
+                <p>When a friend comes to you with a problem, do you focus more on helping them work through it logically or providing emotional support? How do you balance the two?</p>
+                <textarea name="emotional_vs_logical" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Dealing with the Unexpected</h3>
+                <p>When something unexpected happens, do you rely on your ability to improvise and stay in the moment, or do you pause to consider how it aligns with your overall plans or values? Describe an example.</p>
+                <textarea name="dealing_with_unexpected" placeholder="Your response..."></textarea>
+            </article>
+        </section>
+
+        <!-- Section 5: Dominant and Inferior Tendencies -->
+        <section id="dominant-tendencies">
+            <h2>Section 5: Dominant and Inferior Tendencies</h2>
+            <article>
+                <h3>Strengths</h3>
+                <p>What do you feel is your greatest strength in how you approach the world—whether in your work, relationships, or personal growth? How has this helped you?</p>
+                <textarea name="strengths" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Challenges</h3>
+                <p>What aspects of yourself or your approach to life do you find most challenging? For example, are there situations where you feel out of your depth or need to exert extra effort to succeed?</p>
+                <textarea name="challenges" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Comfort Zones</h3>
+                <p>When you're at your best, what kind of activities or situations feel most natural to you? Are there particular environments where you thrive?</p>
+                <textarea name="comfort_zones" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Growth Areas</h3>
+                <p>What do you feel you need to work on to grow as a person? For instance, are there skills or traits you wish to develop further?</p>
+                <textarea name="growth_areas" placeholder="Your response..."></textarea>
+            </article>
+        </section>
+
+	<form id="submit_form" action="https://chatgpt.com" method="GET">
+            <input type="button" value="Submit to ChatGPT" onclick="format_query();">
+	    <textarea id="query" name="q"></textarea>
+	</form>
+        
+    </main>
+</body>
+</html>
+
