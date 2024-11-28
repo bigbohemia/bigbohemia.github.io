@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jungian Personality Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+    <script>
+        function format_query() {
+            let query_input = document.getElementById("query");
+
+            query_input.value = "Jungian Personality Assessment Responses:\n\n";
+
+            const questions = [
+                { name: "decision_making", text: "Decision-Making" },
+                { name: "problem_solving", text: "Problem-Solving" },
+                { name: "time_orientation", text: "Time Orientation" },
+                { name: "conflict_resolution", text: "Conflict Resolution" },
+                { name: "social_energy", text: "Social Energy" },
+                { name: "thinking_style", text: "Thinking Style" },
+                { name: "adaptability", text: "Adaptability" },
+                { name: "planning", text: "Planning" },
+                { name: "ambiguity", text: "Ambiguity" },
+                { name: "support_style", text: "Support Style" },
+                { name: "unexpected_challenges", text: "Unexpected Challenges" },
+                { name: "strengths", text: "Strengths" },
+                { name: "growth_areas", text: "Growth Areas" }
+            ];
+
+            questions.forEach(q => {
+                query_input.value += q.text + ": " + document.getElementsByName(q.name)[0].value + "\n\n";
+            });
+
+            document.getElementById("submit_form").submit();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Jungian Personality Assessment</h1>
+        <p>Please answer the following questions briefly.</p>
+    </header>
+    <main>
+        <section>
+            <h2>Questions</h2>
+            <article>
+                <h3>Decision-Making</h3>
+                <p>When making decisions, do you rely more on past experiences and concrete facts, or do you prefer to imagine future possibilities? Why?</p>
+                <textarea name="decision_making" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Problem-Solving</h3>
+                <p>Do you focus on practical details or overarching patterns when solving problems? Give a quick example.</p>
+                <textarea name="problem_solving" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Time Orientation</h3>
+                <p>Are you more focused on enjoying the present moment, or do you usually think about long-term goals?</p>
+                <textarea name="time_orientation" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Conflict Resolution</h3>
+                <p>In disagreements, do you prioritize fairness and logic or harmony and feelings? Why?</p>
+                <textarea name="conflict_resolution" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Social Energy</h3>
+                <p>Do you feel more energized after spending time with others or after time alone?</p>
+                <textarea name="social_energy" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Thinking Style</h3>
+                <p>Do you prefer to think out loud and refine ideas through conversation, or do you process ideas internally before sharing them?</p>
+                <textarea name="thinking_style" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Adaptability</h3>
+                <p>When plans change unexpectedly, do you adjust quickly or take time to think things through?</p>
+                <textarea name="adaptability" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Planning</h3>
+                <p>When organizing a trip, do you make a detailed itinerary, leave room for flexibility, or avoid planning entirely?</p>
+                <textarea name="planning" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Ambiguity</h3>
+                <p>Do you act based on intuition or gather as much information as possible before making a decision?</p>
+                <textarea name="ambiguity" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Support Style</h3>
+                <p>When a friend has a problem, do you offer logical solutions or emotional support?</p>
+                <textarea name="support_style" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Unexpected Challenges</h3>
+                <p>Do you improvise in the moment or pause to realign with your values or plans when something unexpected happens?</p>
+                <textarea name="unexpected_challenges" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Strengths</h3>
+                <p>What is one strength you feel defines how you approach life?</p>
+                <textarea name="strengths" placeholder="Your response..."></textarea>
+            </article>
+            <article>
+                <h3>Growth Areas</h3>
+                <p>What’s one area where you’d like to improve or grow?</p>
+                <textarea name="growth_areas" placeholder="Your response..."></textarea>
+            </article>
+        </section>
+        <form id="submit_form" action="https://chatgpt.com" method="GET">
+            <input type="button" value="Submit to ChatGPT" onclick="format_query();">
+	    <!--<textarea id="query" name="q" style="display:none;"></textarea>-->
+	    <textarea id="query" name="q" style="display:inline;"></textarea>
+        </form>
+    </main>
+</body>
+</html>
+
