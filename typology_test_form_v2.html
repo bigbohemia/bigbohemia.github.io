@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jungian Functional Personality Typology Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+    <script>
+
+	function format_query() {
+
+	    let query_input = document.getElementById("query");
+
+            // Get form data
+            const form = document.getElementById("mbti-questionnaire");
+            const formData = new FormData(form);
+
+            // Initialize output string
+            let formattedResponse = "Type the respondent based on Jungian Functional Typologies and MBTI.\n\n";
+
+            // Iterate through each question and append responses
+            for (let i = 1; i <= 9; i++) {
+                const selectedOption = formData.get(`q${i}`); // Get the selected option value
+                const explanation = formData.get(`q${i}-explanation`); // Get the explanation
+
+                // Find the label text for the selected option
+                const selectedLabel = document.querySelector(`input[name="q${i}"][value="${selectedOption}"]`).nextSibling.textContent.trim();
+                const questionText = document.querySelector(`#q${i}-prompt`).textContent.trim();
+
+                // Format the response for this question
+                formattedResponse += `Question ${i}: ${questionText}\n`;
+                formattedResponse += `Selected Option: ${selectedLabel}\n`;
+                formattedResponse += `Explanation: ${explanation ? explanation.trim() : "No explanation provided."}\n\n`;
+            }
+
+            // Find the textarea to display the formatted output
+            const outputArea = document.getElementById("query");
+            if (outputArea) {
+                outputArea.value = formattedResponse;
+            } else {
+                console.error("Textarea for formatted output not found!");
+            }
+    
+	    //document.getElementById("submit_form").submit();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Comprehensive MBTI Personality Questionnaire</h1>
+        <p>Answer the questions below honestly. Choose the option that resonates with you most, and provide an explanation to add context to your choice.</p>
+    </header>
+    <main>
+
+
+    <form id="mbti-questionnaire" action="https://chatgpt.com" method="GET">
+
+        <!-- Question 1 -->
+        <fieldset>
+            <legend>1. Energy Orientation</legend>
+            <p id="q1-prompt">When it comes to recharging your energy, do you:</p>
+            <label><input type="radio" name="q1" value="a"> Feel more energized when engaging in discussions or activities with others?</label><br>
+            <label><input type="radio" name="q1" value="b"> Feel more energized when you have time alone to reflect and recharge?</label>
+            <p><strong>Explanation:</strong></p>
+            <textarea name="q1-explanation" rows="3" cols="50" placeholder="Explain your preference..."></textarea>
+        </fieldset>
+        <br>
+
+        <!-- Question 2 -->
+        <fieldset>
+            <legend>2. Focus and Observation</legend>
+            <p id="q2-prompt">Do you find yourself drawn more to:</p>
+            <label><input type="radio" name="q2" value="a"> Observing and appreciating the tangible, concrete details around you?</label><br>
+            <label><input type="radio" name="q2" value="b"> Thinking about abstract ideas, future possibilities, or connections between things?</label>
+            <p><strong>Explanation:</strong></p>
+            <textarea name="q2-explanation" rows="3" cols="50" placeholder="Explain your preference..."></textarea>
+        </fieldset>
+        <br>
+
+        <!-- Question 3 -->
+        <fieldset>
+            <legend>3. Decision-Making Approach</legend>
+            <p id="q3-prompt">When resolving conflicts or making important decisions, do you:</p>
+            <label><input type="radio" name="q3" value="a"> Lean towards fairness, objectivity, and logical reasoning?</label><br>
+            <label><input type="radio" name="q3" value="b"> Prioritize empathy, harmony, and emotional understanding?</label>
+            <p><strong>Explanation:</strong></p>
+            <textarea name="q3-explanation" rows="3" cols="50" placeholder="Explain your preference..."></textarea>
+        </fieldset>
+        <br>
+
+        <!-- Question 4 -->
+        <fieldset>
+            <legend>4. Organization Style</legend>
+            <p id="q4-prompt">When planning a trip or project, do you prefer to:</p>
+            <label><input type="radio" name="q4" value="a"> Create a detailed itinerary or schedule with clear steps?</label><br>
+            <label><input type="radio" name="q4" value="b"> Keep plans flexible and decide what to do as you go?</label>
+            <p><strong>Explanation:</strong></p>
+            <textarea name="q4-explanation" rows="3" cols="50" placeholder="Explain your preference..."></textarea>
+        </fieldset>
+        <br>
+
+        <!-- Question 5 -->
+        <fieldset>
+            <legend>5. Adaptability</legend>
+            <p id="q5-prompt">When faced with an unexpected change, do you:</p>
+            <label><input type="radio" name="q5" value="a"> Prefer to pause, assess, and adjust your plans carefully?</label><br>
+            <label><input type="radio" name="q5" value="b"> Feel comfortable improvising and adjusting on the fly?</label>
+            <p><strong>Explanation:</strong></p>
+            <textarea name="q5-explanation" rows="3" cols="50" placeholder="Explain your preference..."></textarea>
+        </fieldset>
+        <br>
+
+        <!-- Question 6 -->
+        <fieldset>
+            <legend>6. Social Preferences</legend>
+            <p id="q6-prompt">In conversations, do you:</p>
+            <label><input type="radio" name="q6" value="a"> Enjoy thinking out loud and refining ideas through discussion?</label><br>
+            <label><input type="radio" name="q6" value="b"> Prefer to process your thoughts privately before sharing them?</label>
+            <p><strong>Explanation:</strong></p>
+            <textarea name="q6-explanation" rows="3" cols="50" placeholder="Explain your preference..."></textarea>
+        </fieldset>
+        <br>
+
+        <!-- Question 7 -->
+        <fieldset>
+            <legend>7. Learning Style</legend>
+            <p id="q7-prompt">When learning something new, do you:</p>
+            <label><input type="radio" name="q7" value="a"> Focus on mastering the fundamental concepts and structure?</label><br>
+            <label><input type="radio" name="q7" value="b"> Explore various possibilities, experimenting as you go?</label>
+            <p><strong>Explanation:</strong></p>
+            <textarea name="q7-explanation" rows="3" cols="50" placeholder="Explain your preference..."></textarea>
+        </fieldset>
+        <br>
+
+        <!-- Question 8 -->
+        <fieldset>
+            <legend>8. Relationship Dynamics</legend>
+            <p id="q8-prompt">When a friend comes to you with a problem, do you:</p>
+            <label><input type="radio" name="q8" value="a"> Help them work through the problem logically and step-by-step?</label><br>
+            <label><input type="radio" name="q8" value="b"> Provide emotional support and help them feel validated?</label>
+            <p><strong>Explanation:</strong></p>
+            <textarea name="q8-explanation" rows="3" cols="50" placeholder="Explain your preference..."></textarea>
+        </fieldset>
+        <br>
+
+        <!-- Question 9 -->
+        <fieldset>
+            <legend>9. Response to Ambiguity</legend>
+            <p id="q9-prompt">In an ambiguous situation, do you:</p>
+            <label><input type="radio" name="q9" value="a"> Focus on gathering all available facts and details before acting?</label><br>
+            <label><input type="radio" name="q9" value="b"> Trust your intuition and take action based on your gut feeling?</label>
+            <p><strong>Explanation:</strong></p>
+            <textarea name="q9-explanation" rows="3" cols="50" placeholder="Explain your preference..."></textarea>
+        </fieldset>
+        <br>
+
+        <input type="button" value="Submit to ChatGPT" onclick="format_query();">
+	<textarea id="query" name="q"></textarea>
+
+    </form>
+        
+    </main>
+
+</body>
+</html>
+
